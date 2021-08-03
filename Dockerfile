@@ -11,8 +11,7 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> \
 USER fossa
 WORKDIR /home/fossa
 
-RUN cd /home/fossa
-RUN git clone https://github.com/fossas/fossa-cli-onsite
+RUN cd /home/fossa && git clone https://github.com/fossas/fossa-cli-onsite
 RUN cd /home/fossa/fossa-cli-onsite && rm Dockerfile README.md
 
 RUN curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/spectrometer/master/install.sh | sudo bash
