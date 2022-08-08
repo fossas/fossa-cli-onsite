@@ -1,12 +1,11 @@
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 
 RUN apt-get update && \
     apt-get -y install git curl unzip sudo
 
 RUN useradd -ms /bin/bash fossa
 RUN usermod -aG sudo fossa
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> \
-/etc/sudoers
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 USER fossa
 WORKDIR /home/fossa
